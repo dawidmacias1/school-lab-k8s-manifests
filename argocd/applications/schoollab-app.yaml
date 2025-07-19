@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/dawidmacias1/school-lab-k8s-manifests
     targetRevision: main
-    path: applications/*
+    path: applications/main-service
   destination:
     server: https://kubernetes.default.svc
     namespace: schoollab
