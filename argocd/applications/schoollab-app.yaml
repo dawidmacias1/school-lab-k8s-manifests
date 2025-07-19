@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: schoollab
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/dawidmacias1/school-lab-k8s-manifests
+    targetRevision: main
+    path: applications
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: schoollab
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
