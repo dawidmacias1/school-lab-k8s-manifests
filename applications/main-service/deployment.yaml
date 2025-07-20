@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: main-service
-          image: dawmac/schoollab:main-service-30
+          image: dawmac/schoollab:main-service-45
           ports:
             - containerPort: 8080
           env:
